@@ -27,7 +27,7 @@ The framework is evaluated in simulated dynamic-pricing environments with varyin
 ## Alogithm
 
 <p align="center">
-  <img src="architecture.png" alt="FairSwarm framework architecture" width="800">
+  <img src="Algorithm.png" alt="Point Neuron Embedded Kalman Filter Algorithm" width="800">
 </p>
 
 *Overview of the proposed Point Neuron Embedded Kalman Filter.*
