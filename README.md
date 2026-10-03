@@ -22,7 +22,9 @@ We propose the Point Neuron Embedded Kalman Filter (PNEKF), a novel Kalman Filte
   <img src="Algorithm.png" alt="Point Neuron Embedded Kalman Filter Algorithm" width="800">
 </p>
 
-*Overview of the proposed Point Neuron Embedded Kalman Filter (PNEKF).*
+*Flowchart of the proposed PNEKF algorithm for Sound Source Tracking.*
+
+PNEKF initializes point neuron weights and positions at $t=1$ using sound source localization techniques like OMP. It then alternates between prediction and update steps, operating directly on microphone measurements.  In prediction, source locations are propagated via a linear motion model and predicted measurements are computed using a Point Neuron Learning forward pass. In update, Kalman update estimates source positions, while velocities are computed from successive source positions, and backpropagation updates weights and positions.
 
 ## Experimental Setup
 
@@ -107,13 +109,11 @@ pip install -r requirements.txt
 
 The main implementations are located in the `Codes/` directory. Run the required training, localization, or tracking script according to the desired experiment.
 
-For example:
 
 ```bash
 python Codes/pnekf.py
 ```
-
-The experimental parameters, including source configuration, microphone setup, frequency, noise level, and tracking settings, can be modified directly in the corresponding scripts.
+This creates a PNEKF with the set experimental parameter including source configuration, microphone setup, frequency an noise level.
 
 For source localization, the implementations under:
 
@@ -121,9 +121,9 @@ For source localization, the implementations under:
 Codes/Localize/
 ```
 
-provide OMP- and TDOA-SRP-based approaches.
+provides OMP- and TDOA-SRP-based approaches for source localization which is then used to intialize the tracking process.
 
-The Kalman-filter-based tracking implementations are available under:
+The benchmarked Kalman-filter-based tracking implementations are available under:
 
 ```text
 Codes/KF+OMP/
@@ -135,14 +135,6 @@ The Point Neuron Learning implementation is available under:
 ```text
 Codes/Point_Neuron_Learning/
 ```
-
-The MATLAB scripts required for generating and visualizing the simulation data are provided under:
-
-```text
-Data/MatLab Codes/
-```
-
-Run the scripts using the configurations specified in the respective files.
 
 
 ## Citation
