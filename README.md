@@ -22,62 +22,80 @@ We propose the Point Neuron Embedded Kalman Filter (PNEKF), a novel Kalman Filte
   <img src="Algorithm.png" alt="Point Neuron Embedded Kalman Filter Algorithm" width="800">
 </p>
 
-*Overview of the proposed Point Neuron Embedded Kalman Filter.*
+*Overview of the proposed Point Neuron Embedded Kalman Filter (PNEKF).*
 
 ## Experimental Setup
 
+The PNEKF is evaluated for **narrowband sound-source tracking in a 3D acoustic environment**. The experiments use simulated microphone measurements generated for moving sound sources under different source configurations and noise conditions.
+
+The implementation includes experiments for:
+
+* Single- and multiple-source localization and tracking
+* Point Neuron Learning (PNL)-based sound-field reconstruction
+* Extended Kalman Filter (EKF)-based tracking
+* Multi-Model Kalman Filter (MMKF)-based tracking
+* OMP-based source initialization and localization
+* TDOA-SRP-based localization
+
+The simulation and data-generation scripts are provided under `Data/MatLab Codes/`.
 
 ## Repository Structure
 
+```text
 .
 ├── Algorithm.png
 ├── Codes
-│   ├── KF+OMP
-│   │   ├── kf+omp.py
-│   │   ├── kf+omp_multiple.py
-│   │   └── kf.py
-│   ├── Localize
-│   │   ├── OMP
-│   │   │   ├── error_plot.py
-│   │   │   ├── initialization_omp.py
-│   │   │   ├── localize_omp.py
-│   │   │   ├── localize_omp_multiple.py
-│   │   │   ├── omp.py
-│   │   │   ├── omp_grids.py
-│   │   │   └── omp_track.py
-│   │   └── TDOA_SRP
-│   │       ├── initialization.py
-│   │       ├── localize.py
-│   │       └── localizer.py
-│   ├── MMKF
-│   │   ├── mmkf+omp_multiple.py
-│   │   ├── mmkf+omp_track.py
-│   │   ├── mmkf.py
-│   │   └── mmkf_track.py
-│   ├── Point_Neuron_Learning
-│   │   ├── helper.py
-│   │   └── point_neuron.py
-│   ├── plot.py
-│   ├── plot_multiple.py
-│   ├── pnekf.py
-│   ├── track_ms+omp.py
-│   ├── track_ms.py
-│   └── track_ms_multiple.py
+│   ├── KF+OMP
+│   │   ├── kf+omp.py
+│   │   ├── kf+omp_multiple.py
+│   │   └── kf.py
+│   ├── Localize
+│   │   ├── OMP
+│   │   │   ├── error_plot.py
+│   │   │   ├── initialization_omp.py
+│   │   │   ├── localize_omp.py
+│   │   │   ├── localize_omp_multiple.py
+│   │   │   ├── omp.py
+│   │   │   ├── omp_grids.py
+│   │   │   └── omp_track.py
+│   │   └── TDOA_SRP
+│   │       ├── initialization.py
+│   │       ├── localize.py
+│   │       └── localizer.py
+│   ├── MMKF
+│   │   ├── mmkf+omp_multiple.py
+│   │   ├── mmkf+omp_track.py
+│   │   ├── mmkf.py
+│   │   └── mmkf_track.py
+│   ├── Point_Neuron_Learning
+│   │   ├── helper.py
+│   │   └── point_neuron.py
+│   ├── plot.py
+│   ├── plot_multiple.py
+│   ├── pnekf.py
+│   ├── track_ms+omp.py
+│   ├── track_ms.py
+│   └── track_ms_multiple.py
 ├── Data
-│   └── MatLab Codes
-│       ├── arrange_mics_on_boundary.m
-│       ├── circular_moving_source.m
-│       ├── known_sources_pn2.m
-│       ├── moving_source.m
-│       ├── omp.m
-│       ├── plotcube.m
-│       ├── sample_circular_region.m
-│       └── sample_spherical_region.m
+│   └── MatLab Codes
+│       ├── arrange_mics_on_boundary.m
+│       ├── circular_moving_source.m
+│       ├── known_sources_pn2.m
+│       ├── moving_source.m
+│       ├── omp.m
+│       ├── plotcube.m
+│       ├── sample_circular_region.m
+│       └── sample_spherical_region.m
 ├── LICENSE
 ├── README.md
 └── requirements.txt
+```
 
 ## Getting Started
+
+### Installation
+
+Clone the repository and install the required Python dependencies:
 
 ```bash
 git clone <REPOSITORY_URL>
@@ -85,7 +103,47 @@ cd <REPOSITORY_NAME>
 pip install -r requirements.txt
 ```
 
-Run the training and evaluation scripts using the configurations specified in the code.
+### Running the Code
+
+The main implementations are located in the `Codes/` directory. Run the required training, localization, or tracking script according to the desired experiment.
+
+For example:
+
+```bash
+python Codes/pnekf.py
+```
+
+The experimental parameters, including source configuration, microphone setup, frequency, noise level, and tracking settings, can be modified directly in the corresponding scripts.
+
+For source localization, the implementations under:
+
+```text
+Codes/Localize/
+```
+
+provide OMP- and TDOA-SRP-based approaches.
+
+The Kalman-filter-based tracking implementations are available under:
+
+```text
+Codes/KF+OMP/
+Codes/MMKF/
+```
+
+The Point Neuron Learning implementation is available under:
+
+```text
+Codes/Point_Neuron_Learning/
+```
+
+The MATLAB scripts required for generating and visualizing the simulation data are provided under:
+
+```text
+Data/MatLab Codes/
+```
+
+Run the scripts using the configurations specified in the respective files.
+
 
 ## Citation
 
