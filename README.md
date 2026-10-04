@@ -3,7 +3,7 @@
 
 Official implementation of **“Point Neuron Embedded Kalman Filter for Narrowband Sound Source Tracking,”** published in the proceedings of the 34th European Signal Processing Conference 2026, Brussels, Belgium.
 
-Developed by **Vishwanath Vinod** under the guidance of **Prof. Thushara Abhayapal** as part of the Future Research Talent internship at the Australian National University.
+Developed by **Vishwanath Vinod** under the guidance of **Prof. Thushara Abhayapala** as part of the Future Research Talent internship at the Australian National University.
 
 ## Paper
 
